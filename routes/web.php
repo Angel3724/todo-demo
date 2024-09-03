@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/contacto', function () {
+    return view("contacto");
+});
+
+Route::post('/guardar-formulario', function(Request $request) {
+    //Recibir datos
+    dd($request->all(), $request->nombre);
+
+    //Validar datos
+
+    //Guardar datos
+    
+
+    //Redireccionar datos
 });
