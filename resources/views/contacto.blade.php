@@ -6,10 +6,15 @@
     <title>Contacto</title>
 </head>
 <body>
-    <h1>Formulario de Contacto</h1>
+    <h1>Formulario de Contacto para {{ $tipo_usuario }}</h1>
     <section>
         <form action="/guardar-formulario" method="POST">
             @csrf
+            @if($tipo_usuario == 'cliente')
+                <label for="no_cliente">No. de Cliente</label>
+                <input type="text" name="no_cliente" value="{{ old('no_cliente') }}" id="no_cliente"><br>
+            @endif
+
             <label for="nombre">Nombre</label>
             <input type="text" name="nombre" value="{{ old('nombre') }}" id=""><br>
 
