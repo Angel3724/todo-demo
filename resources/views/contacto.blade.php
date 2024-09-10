@@ -11,13 +11,16 @@
         <form action="/guardar-formulario" method="POST">
             @csrf
             <label for="nombre">Nombre</label>
-            <input type="text" name="nombre" id=""><br>
+            <input type="text" name="nombre" value="{{ old('nombre') }}" id=""><br>
 
             <label for="correo">Correo</label>
-            <input type="email" name="correo" id=""><br>
+            <input type="email" name="correo" value="{{ old('correo') }}" id=""><br>
+            @error ('correo')
+                <div class="alert alert-danger">{{$message}}</div>
+            @enderror
 
             <label for="mensaje">Mensaje:</label><br>
-            <textarea type="text" cols="30" rows="4" name="mensaje" id=""></textarea><br>
+            <textarea type="text" cols="30" rows="4" name="mensaje" id="">{{ ('mensaje') }}</textarea><br>
 
             <input type="submit" value="Enviar">
         </form>        
