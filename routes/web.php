@@ -23,3 +23,12 @@ Route::get('/', function () {
 Route::get('/contacto/{tipo_usuario?}', [ContactoController::class, 'formularioContacto']);
 Route::post('/guardar-formulario', [ContactoController::class, 'guardarFormulario']);
 Route::get('/mensajes', [ContactoController::class, 'listado']);
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
